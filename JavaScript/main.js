@@ -23,11 +23,13 @@ input.addEventListener("input", () => {
   clearTimeout(time);
   time = setTimeout(() => {
     list.innerHTML = "";
-    const search = usersArr.filter((user) =>
-      user.name.toLowerCase().includes(input.value.toLowerCase())
-    );
+    const search = usersArr.filter((user) => {
+      return user.name.toLowerCase().includes(input.value.toLowerCase());
+    });
+    if (search.length === 0) {
+      list.innerHTML = `<h1 class="find">Ma'lumot topilmadi!</h1>`;
+    }
     createUi(search);
-    console.log(search);
   }, 300);
 });
 //serverdagi ma'lumotlarni Ui ga chiqarish

@@ -13,7 +13,7 @@ async function getUser() {
     usersArr = data;
     createUi(usersArr);
   } catch (error) {
-    console.log(error.message);
+    alert(error.message);
   }
 }
 getUser();
